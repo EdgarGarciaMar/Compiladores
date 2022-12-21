@@ -12,35 +12,79 @@ import java.util.Scanner;
  */
 public class Reservadas {
 
-        char arr1[];
+    char arr1[];
 
-        public Reservadas(char arr[]) {
-            this.arr1 = arr;
-        }
+    public Reservadas(char arr[]) {
+        this.arr1 = arr;
+    }
 
-        public void identificarPalabra() {
-            int indice = 0;
-            while (indice <= arr1.length) {
-                if (arr1.length == 2) {//IF
-                    if ('i' == arr1[indice]) {
+    public void identificarPalabra() {
+        int indice = 0;
+        int bandera = 0;
+        while (indice <= arr1.length) {
+            if (arr1.length == 2) {//IF
+                if ('i' == arr1[indice]) {
+                    indice++;
+                    if ('f' == arr1[indice]) {
+                        System.out.println("Palabra aceptada: {if}");
+                        bandera =1;
+                        break;
+                    } else {
+                        System.out.println("Palabra no aceptada: {if}");
+                    }
+                }
+            }
+            if (arr1.length == 4) {//ELSE
+                if ('e' == arr1[indice]) {
+                    indice++;
+                    if ('l' == arr1[indice]) {
                         indice++;
-                        if ('f' == arr1[indice]) {
-                            System.out.println("Palabra aceptada: {if}");
-                            break;
+                        if ('s' == arr1[indice]) {
+                            indice++;
+                            if ('e' == arr1[indice]) {
+                                System.out.println("Palabra aceptada: {else}");
+                                bandera =1;
+                                break;
+                            } else {
+                                System.out.println("Palabra no aceptada: {else}");
+                                break;
+                            }
                         }
                     }
                 }
-                if(arr1.length ==4){//ELSE
-                    
+            }
+
+            if (arr1.length == 6) {//return
+                if ('r' == arr1[indice]) {
+                    indice++;
+                    if ('e' == arr1[indice]) {
+                        indice++;
+                        if ('t' == arr1[indice]) {
+                            indice++;
+                            if ('u' == arr1[indice]) {
+                                indice++;
+                                if ('r' == arr1[indice]) {
+                                    indice++;
+                                    if ('n' == arr1[indice]) {
+                                        System.out.println("Palabra aceptada: {return}");
+                                        bandera =1;
+                                        break;
+                                    } else {
+                                        System.out.println("Palabra no aceptada: {return}");
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
-                
-                if(arr1.length==5){
-                    
-                }
-                
+            }
+            if(bandera == 0){
+                System.out.println("Palabra no aceptada");
+                break;
             }
         }
-
+    }
 
     public static void main(String[] args) {
         Reservadas tm;
